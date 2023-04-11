@@ -2,7 +2,8 @@
 Blog website built using ejs, js , html and css
 
 
-version 1.0 
+version 1.1 
 
-# Intial commit
-- initial commit
+# Partials added
+- moved header and footer to partials folder
+- adjusted the home.ejs to point to the partials folder instead
