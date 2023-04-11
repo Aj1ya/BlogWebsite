@@ -2,8 +2,10 @@
 Blog website built using ejs, js , html and css
 
 
-version 1.2 
+version 1.3 
 
-# Subpages content added
-- added content for home, about and contact.
-- added link to the header menus
+# Removed unused template
+- removed index.html 
+
+# Added compose template
+- added compose.ejs to the template and also included form to input content.

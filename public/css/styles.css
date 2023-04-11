@@ -31,5 +31,10 @@
 .footer p {
 	margin-top: 25px;
 	font-size: 12px;
-  color: #fff;
+    color: #fff;
+}
+
+.compose-btn{
+    padding: .2rem 2rem;
+    border-radius: 4px;    
 }
