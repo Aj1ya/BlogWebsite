@@ -2,9 +2,12 @@
 
 <h1>Compose</h1>
 
-<form action="/" method="post">
-    <input type="text" name="composeContent">
-    <button name="publish" class="compose-btn">Publish</button>
+<form action="/compose" method="post" class="compose">
+    <label for="postTitle">Title</label>
+    <input type="text" name="postTitle">
+    <label for="postContent">Post</label>
+    <textarea name="postContent" rows="6"></textarea>
+    <button type="submit" name="publish" class="btn btn-primary compose-btn">Publish</button>
 </form>
 
 <%- include("partials/footer") -%>
