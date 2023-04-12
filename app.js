@@ -10,13 +10,18 @@ const contactContent =  "Lorem ipsum dolor sit, amet consectetur adipisicing eli
 
 const app = express();
 
+let posts = [];
+
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 
 app.get("/", (req, res)=>{
-    res.render("home", {homeContent: homeStartingContent});
+    res.render("home", {
+        homeContent: homeStartingContent,
+        posts: posts
+    });
 })
 
 app.get("/about", (req, res)=>{
@@ -27,17 +32,17 @@ app.get("/contact", (req, res)=>{
     res.render("contact", {contactContent: contactContent});
 })
 
-app.post("/compose", (req, res)=>{
-    console.log(req.body.composeContent);
-    res.redirect("/compose");
+app.post("/compose", (req, res)=>{ 
+    const post = {
+        title: req.body.postTitle,
+        content: req.body.postContent
+    };
+    posts.push(post);
+    res.redirect("/");
 })
 
 app.get("/compose", (req, res)=>{
     res.render("compose");
-})
-
-app.post("/", (req, res)=>{
-    console.log("home");
 })
 
 app.listen(3000, (req, res)=>{

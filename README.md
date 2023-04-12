@@ -2,8 +2,7 @@
 Blog website built using ejs, js , html and css
 
 
-version 1.6
+version 2.0
 
-# Updated the compose template to use bootstrap classes
-- Updated the compose template to use bootstrap classes,
-- removed custom css in use previously.
+# Posts reders to home page.
+- posts added to compose page will now get rendered to the home page.
