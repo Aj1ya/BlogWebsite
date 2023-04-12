@@ -3,10 +3,12 @@
 <h1>Compose</h1>
 
 <form action="/compose" method="post" class="compose">
-    <label for="postTitle">Title</label>
-    <input type="text" name="postTitle">
-    <label for="postContent">Post</label>
-    <textarea name="postContent" rows="6"></textarea>
+    <div class="form-group">
+        <label for="postTitle">Title</label>
+        <input type="text" name="postTitle" class="form-control">
+        <label for="postContent">Post</label>
+        <textarea name="postContent" rows="6" cols="30" class="form-control"></textarea>
+    </div>
     <button type="submit" name="publish" class="btn btn-primary compose-btn">Publish</button>
 </form>
 

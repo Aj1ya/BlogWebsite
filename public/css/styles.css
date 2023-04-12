@@ -47,12 +47,3 @@
     color: #337ab7;
 }
 
-
-form.compose{
-    display: flex;
-    flex-direction: column;
-}
-
-form>*{
-    margin-bottom: 1rem;
-}
