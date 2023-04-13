@@ -45,6 +45,15 @@ app.get("/compose", (req, res)=>{
     res.render("compose");
 })
 
+app.get("/posts/:postName", (req,res)=>{
+    const reqTitle = req.params.postName;
+    posts.forEach( function(post){
+        if( reqTitle === post.title ){
+            console.log( "Match found" );
+        }    
+    });
+});
+
 app.listen(3000, (req, res)=>{
     console.log("app started in 3000");
 })
