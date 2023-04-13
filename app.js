@@ -3,6 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+const loadash = require("lodash");
 
 const homeStartingContent =  "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum incidunt quaerat, doloribus dolorum voluptatibus perspiciatis dolore ex reprehenderit tempora omnis. Ad facilis perferendis, illo consequatur repudiandae dolorum animi minus quod?"
 const aboutContent =  "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum incidunt quaerat, doloribus dolorum voluptatibus perspiciatis dolore ex reprehenderit tempora omnis. Ad facilis perferendis, illo consequatur repudiandae dolorum animi minus quod?"
@@ -32,6 +33,10 @@ app.get("/contact", (req, res)=>{
     res.render("contact", {contactContent: contactContent});
 })
 
+app.get("/compose", (req, res)=>{
+    res.render("compose");
+})
+
 app.post("/compose", (req, res)=>{ 
     const post = {
         title: req.body.postTitle,
@@ -41,16 +46,16 @@ app.post("/compose", (req, res)=>{
     res.redirect("/");
 })
 
-app.get("/compose", (req, res)=>{
-    res.render("compose");
-})
-
 app.get("/posts/:postName", (req,res)=>{
-    const reqTitle = req.params.postName;
-    posts.forEach( function(post){
-        if( reqTitle === post.title ){
-            console.log( "Match found" );
-        }    
+    const reqTitle = loadash.lowerCase(req.params.postName);
+    posts.forEach((post)=>{        
+        const strTitle = loadash.lowerCase(post.title);
+        if( reqTitle === strTitle ){
+            res.render("post", {
+                title: post.title,
+                content: post.content
+            });
+        }  
     });
 });
 
